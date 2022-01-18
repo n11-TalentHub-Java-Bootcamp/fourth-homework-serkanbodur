@@ -10,3 +10,9 @@ INSERT INTO public.USER( ID, NAME, SURNAME, EMAIL, PHONE, USERNAME) VALUES ( 8 ,
 INSERT INTO public.USER( ID, NAME, SURNAME, EMAIL, PHONE, USERNAME) VALUES ( 9 , 'Nineth Name' , 'Nineth Surname' , 'nineth@mail.com', '9999', 'nineth_username');
 INSERT INTO public.USER( ID, NAME, SURNAME, EMAIL, PHONE, USERNAME) VALUES ( 10 , 'Tenth Name' , 'Tenth Surname' , 'tenth@mail.com', '1010', 'tenth_username');
 alter sequence user_id_seq restart with 11;
+
+INSERT INTO debt( id, debt_type, expiry_date, main_debt_amount, user_id) VALUES ( 1 , 1 , '2010.10.19' , 100 , 1);
+INSERT INTO debt( id, debt_type, created_date, expiry_date, main_debt_amount, user_id) VALUES ( 2 , 1 , NOW() ,'2022.01.18' , 100 , 1);
+INSERT INTO debt( id, debt_type, created_date, expiry_date, main_debt_amount, user_id) VALUES ( 3 , 1 , NOW() ,'2022.01.18' , 100 , 2);
+INSERT INTO debt( id, debt_type, created_date, expiry_date, main_debt_amount, user_id) VALUES ( 4 , 1 , NOW() ,'2017.01.18' , 100 , 2);
+alter sequence debt_id_seq restart with 5;
