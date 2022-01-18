@@ -13,5 +13,4 @@ public class CollectionDTO {
     private Long id;
     private Date collectionDate;
     private Long debtId;
-    // private List<DebtDTO> debtDTOs;
 }

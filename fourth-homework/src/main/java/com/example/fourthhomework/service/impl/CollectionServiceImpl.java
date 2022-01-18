@@ -35,8 +35,6 @@ public class CollectionServiceImpl implements CollectionService {
         collection.setCollectionDate(new Date());
         collection = collectionRepository.save(collection);
 
-        //  var debt = debtRepository.findById(collectionDTO.getDebtDTOs().get(0).getId()).orElseThrow(() -> new DebtIsNotExistException("The debt was not found"));
-
         var debt = debtRepository.findById(collectionDTO.getDebtId()).orElseThrow(() -> new DebtIsNotExistException("The debt was not found"));
 
         debt.setRealDebtAmount(BigDecimal.valueOf(0));
@@ -44,7 +42,7 @@ public class CollectionServiceImpl implements CollectionService {
 
         if(debt.getExpiryDate().before(new Date()))
         {
-            BigDecimal totalDebt = BigDecimal.valueOf(0).setScale(2);
+            BigDecimal totalDebt = BigDecimal.valueOf(0);
             var lateDebtDTO = new DebtDTO();
 
             lateDebtDTO.setDebtType(EnumDebtType.LATE_FEE);

@@ -18,10 +18,6 @@ public interface DebtRepository extends JpaRepository<Debt, Long> {
 
     @Query("select d from Debt d where d.user.id= :userId and d.debtType = 1")
     List<Debt> findAllByUserIdAndAndDebtType(Long userId);
-    /*
-    @Query("select sum(d.realDebtAmount) from Debt d where d.user.id= ?1")
-    BigDecimal sumRealDebtByUserId(Long userId);
-     */
 
     @Query("select sum(d.realDebtAmount) from Debt d where d.user.id= :userId and d.expiryDate<= :date")
     BigDecimal sumRealDebtByUserIdAndAndExpiryDateBefore(Long userId, Date date);

@@ -14,15 +14,9 @@ public interface CollectionConverter {
 
     CollectionConverter INSTANCE = Mappers.getMapper(CollectionConverter.class);
 
-    //@Mapping(source = "debts", target = "debtDTOs")
-    //@Mapping(source = "debts", target = "debtIds")
     CollectionDTO convertCollectionToCollectionDTO(Collection collection);
 
-    //@Mapping(source = "debtDTOs", target = "debts")
-    //@Mapping(source = "debtIds", target = "debts.id")
     Collection convertCollectionDTOToCollection(CollectionDTO collectionDTO);
 
-    //@Mapping(source = "debts", target = "debtDTOs")
-    //@Mapping(source = "debts.id", target = "debtIds")
     List<CollectionDTO> convertCollectionToCollectionDTOs(List<Collection> collection);
 }
