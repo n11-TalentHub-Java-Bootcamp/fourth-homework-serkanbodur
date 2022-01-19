@@ -39,26 +39,26 @@ public class DebtController {
         return new ResponseEntity<>(responseDebtDTOs,HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/overdueUser")
+    @RequestMapping(method = RequestMethod.GET, value = "/userOverdue")
     public ResponseEntity<List<DebtDTO>> findAllByExpiryDateAndRealDebtAmount(@RequestParam Long userId){
         var responseDebtDTOs = debtService.findAllByUserIdAndExpiryDateBeforeAndRealDebtAmountIsNotZero(userId);
         return new ResponseEntity<>(responseDebtDTOs,HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/userDebt")
+    @RequestMapping(method = RequestMethod.GET, value = "/userInstantTotal")
     public ResponseEntity<String> sumInstantDebtByUserId(@RequestParam Long userId){
         var sum = debtService.sumInstantDebtByUserId(userId);
         return new ResponseEntity<>("The user who has " + userId + " id's total debt : " + sum,HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "expiryDateUserDebt")
+    @RequestMapping(method = RequestMethod.GET, value = "/userOverdueTotal")
     public ResponseEntity<String> sumRealDebtByUserIdAndExpiryDate(@RequestParam Long userId)
     {
         var sum = debtService.sumRealDebtByUserIdAndExpiryDate(userId);
         return new ResponseEntity<>("The user who has " + userId + " id's total past due debt : " + sum, HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "instantLateRaise")
+    @RequestMapping(method = RequestMethod.GET, value = "/userInstantLateRaise")
     public ResponseEntity<String> instantLateRaise(@RequestParam Long userId)
     {
         var instantLateRaise = debtService.instantLateRaise(userId);

@@ -38,7 +38,7 @@ public class CollectionController {
         return new ResponseEntity<>(responseCollectionDTOs,HttpStatus.OK);
     }
 
-    @GetMapping(value="/lateRaise")
+    @GetMapping(value="/totalLateRaise")
     public ResponseEntity<String> sumLateRaise(@RequestParam Long userId)
     {
         var sum = collectionService.sumMainDebtAmountByUserId(userId);
